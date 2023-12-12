@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block cambio %}
+    <div>
+        <form action="/app/filtrar_servicios" method="GET">
+            {{form.as_p}}
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+    {% for servicio in servicios %}
+        <p>Servicio: {{servicio.servicio}}</p>
+        <p>Descripción: {{servicio.descripcion}}</p>
+        <p>Precio: ${{servicio.precio}}</p>
+        <hr>
+    {% endfor %}
+
+{% endblock %}

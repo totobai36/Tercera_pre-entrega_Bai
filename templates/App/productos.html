@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block cambio %}
+    <div>
+        <form action="/app/filtrar_producto_catalogo" method="GET">
+            {{form.as_p}}
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+    {% for producto in productos %}
+        <p>Producto: {{producto.producto}}</p>
+        <p>Precio: ${{producto.precio}}</p>
+        <hr>
+    {% endfor %}
+{% endblock %}
