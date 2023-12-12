@@ -33,7 +33,7 @@ def mostrar_vehiculo(request):
     return render(request, 'App/vehiculos.html', contexto)
 
 def filtrar_vehiculo(request):
-    vehiculo = request.GET["vehiculo"]
+    vehiculo = request.GET["nombre"]
     vehiculos = Vehiculo.objects.filter(vehiculo__icontains=vehiculo)
 
 
@@ -42,7 +42,7 @@ def filtrar_vehiculo(request):
         "form": Filtro()
     }
 
-    return render(request, 'app/vehiculos.html', contexto)
+    return render(request, 'App/vehiculos.html', contexto)
 
 
 
@@ -71,7 +71,7 @@ def mostrar_servicio(request):
 
     return render(request, 'App/servicios.html', contexto)
 def filtrar_servicio(request):
-    servicio = request.GET["servicio"]
+    servicio = request.GET["nombre"]
     servicios = Servicio.objects.filter(servicio__icontains=servicio)
 
     contexto = {
@@ -79,7 +79,7 @@ def filtrar_servicio(request):
         "form": Filtro()
     }
 
-    return render(request, 'app/servicios.html', contexto)
+    return render(request, 'App/servicios.html', contexto)
 
 
 
@@ -111,7 +111,7 @@ def mostrar_producto_tienda(request):
 
 
 def filtrar_producto_tienda(request):
-    producto = request.GET["producto"]
+    producto = request.GET["nombre"]
     productos = Tienda.objects.filter(producto__icontains=producto)
 
     contexto = {
