@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
+
 from App.models import Vehiculo, Servicio, Tienda
 from App.forms import ServicioForm, TiendaForm, VehiculoForm, Filtro
 # Create your views here.
@@ -22,6 +24,14 @@ def agregar_vehiculo(request):
     }
 
     return render(request, "App/agregar_vehiculo.html", contexto)
+
+class VehiculoList(ListView):
+    model = Vehiculo
+    template_name = "App/vehiculos_1.html"
+
+class VehiculoDetalle(DetailView):
+    model = Vehiculo
+    template_name = "App/vehiculo_detalle.html"
 
 def mostrar_vehiculo(request):
     vehiculos = Vehiculo.objects.all()

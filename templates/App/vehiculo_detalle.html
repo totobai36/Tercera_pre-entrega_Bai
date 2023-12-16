@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block cambio %}
+<p><b>{{ vehiculo.vehiculo }}</b> de la marca <b>{{ vehiculo.marca }}</b>,
+modelo {{ vehiculo.modelo }}</p>
+<p>
+    <a href="vehiculos/listar">lista de vehiculos</a>
+</p>
+
+{% endblock %}

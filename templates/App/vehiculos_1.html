@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block cambio %}
+    <div>
+        <form action="/app/filtrar_vehiculos" method="GET">
+
+            <input type="text" name="nombre">
+
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+    {% for vehiculo in object_list %}
+        <p>Vehiculo: {{vehiculo.vehiculo}}</p>
+        <p>Marca: {{vehiculo.marca}}</p>
+        <p>Modelo: {{vehiculo.modelo}}</p>
+        <p>
+            <a href="vehiculo/<int:pk>">Detalles</a>
+        </p>
+        <hr>
+    {% endfor %}
+
+{% endblock %}
